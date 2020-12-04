@@ -2,11 +2,11 @@
 WORKDIR /app
 
 # Copy csproj and restore as distinct layers
-COPY TestAndBuild.Web/*.csproj ./
+COPY *.csproj ./
 RUN dotnet restore
 
 # Copy everything else and build
-COPY TestAndBuild.Web/ ./
+COPY . ./
 RUN dotnet publish -c Release -o out
 
 # Build runtime image
